@@ -6,14 +6,14 @@ public class FindGuitarTester {
 		Inventory inventory = new Inventory();
 		initializeInventory(inventory);
 		
-		Guitar whatErinLikes = new Guitar("", 0, "fender", "Stratocastor"
-				, "electric", "Alder", "Alder");
+		Guitar whatErinLikes = new Guitar("", 0, Builder.FENDER, "Stratocastor"
+				, Type.ELECTRIC, Wood.ALDER, Wood.ALDER);
 		
 		Guitar guitar = inventory.search(whatErinLikes);
 		if(guitar != null){
 			System.out.println("Eric, you might like this " + 
 					guitar.getBuilder() + " " + guitar.getModel()  +" " +
-					guitar.getType() + " guitar:¥n " +
+					guitar.getType() + " guitar: ¥n" +
 					guitar.getBackWood() + " back and sides,¥n " + 
 					guitar.getTopWood() + " top.¥nYou can have it for only $" +
 					guitar.getPrice() +"!"
@@ -25,6 +25,6 @@ public class FindGuitarTester {
 	
 	private static void initializeInventory(Inventory inventory){
 		//在庫にギターを追加する
-		inventory.addGuitar("V95693", 1499.95, "Fender", "Stratocastor", "electric", "Alder", "Alder");
+		inventory.addGuitar("V95693", 1499.95, Builder.FENDER, "Stratocastor", Type.ELECTRIC, Wood.ALDER, Wood.ALDER);
 	}
 }
