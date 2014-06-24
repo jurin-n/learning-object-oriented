@@ -1,4 +1,4 @@
-package headfirst.chap02;
+package headfirst.chap04;
 
 import java.util.ArrayList;
 import java.util.List;
