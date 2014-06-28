@@ -5,22 +5,27 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class Inventory {
-	private List<Guitar> guitars;
+	private List<Instrument> inventory;
 
 	public Inventory(){
-		guitars = new LinkedList<Guitar>();
+		inventory = new LinkedList<Instrument>();
 	}
 	
-	public void addGuitar(String serialNumber,double price,GuitarSpec spec){
-		Guitar guitar = new Guitar(serialNumber,price,spec);
-		guitars.add(guitar);
+	public void addInstrument(String serialNumber,double price,InstrumentSpec spec){
+		Instrument instrument =null;
+		if(spec instanceof GuitarSpec){
+			instrument= new Guitar(serialNumber,price,(GuitarSpec)spec);
+		}else if(spec instanceof MandolinSpec){
+			instrument= new Mandolin(serialNumber,price,(MandolinSpec)spec);
+		}
+		inventory.add(instrument);
 	}
 	
-	public Guitar getGuitar(String serialNumber){
-		for(Iterator<Guitar> i = guitars.iterator();i.hasNext();){
-			Guitar guitar=(Guitar)i.next();
-			if(guitar.getSerialNumber().equals(serialNumber)){
-				return guitar;				
+	public Instrument get(String serialNumber){
+		for(Iterator<Instrument> i = inventory.iterator();i.hasNext();){
+			Instrument instrument=(Instrument)i.next();
+			if(instrument.getSerialNumber().equals(serialNumber)){
+				return instrument;				
 			}
 		}
 		return null;
@@ -28,7 +33,7 @@ public class Inventory {
 	
 	public List<Guitar> search(GuitarSpec searchGuitar){
 		List<Guitar> matchingGuitars = new LinkedList<Guitar>();
-		for(Iterator<Guitar> i = guitars.iterator();i.hasNext();){
+		for(Iterator<Instrument> i = inventory.iterator();i.hasNext();){
 			Guitar guitar = (Guitar)i.next();	
 			if(guitar.getSpec().matches(searchGuitar)){
 				matchingGuitars.add(guitar);	
@@ -36,4 +41,16 @@ public class Inventory {
 		}
 		return matchingGuitars;
 	}
+	
+	public List<Mandolin> search(MandolinSpec searchMandolin){
+		List<Mandolin> matchingMandolins = new LinkedList<Mandolin>();
+		for(Iterator<Instrument> i = inventory.iterator();i.hasNext();){
+			Mandolin mandolin = (Mandolin)i.next();	
+			if(mandolin.getSpec().matches(searchMandolin)){
+				matchingMandolins.add(mandolin);	
+			}
+		}
+		return matchingMandolins;
+	}
+	
 }

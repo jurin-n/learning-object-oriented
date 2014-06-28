@@ -19,7 +19,7 @@ public class FindGuitarTester {
 			
 			for(Iterator<Guitar> i = matchingGuitars.iterator(); i.hasNext();){
 				Guitar guitar = (Guitar)i.next();
-				GuitarSpec spec = guitar.getSpec();
+				GuitarSpec spec = (GuitarSpec) guitar.getSpec();
 				System.out.println(
 						"We have a " + 
 						spec.getBuilder() + " " + spec.getModel()  +" " +
@@ -37,11 +37,11 @@ public class FindGuitarTester {
 	
 	private static void initializeInventory(Inventory inventory){
 		//在庫にギターを追加する
-		inventory.addGuitar("V95693", 1499.95, new GuitarSpec(Builder.FENDER, "Stratocastor", Type.ELECTRIC,12, Wood.ALDER, Wood.ALDER));
-		inventory.addGuitar("V95692", 1480.95, new GuitarSpec(Builder.FENDER, "Stratocastor", Type.ELECTRIC,12, Wood.ALDER, Wood.ALDER));
-		inventory.addGuitar("V9512", 1500.95, new GuitarSpec(Builder.FENDER, "Stratocastor", Type.ELECTRIC,12, Wood.COCOBOLO, Wood.COCOBOLO));
-		inventory.addGuitar("G9512", 1500.95, new GuitarSpec(Builder.GIBSON, "Stratocastor", Type.ELECTRIC,12, Wood.ALDER, Wood.ALDER));
-		inventory.addGuitar("F9512", 1500.95, new GuitarSpec(Builder.GIBSON, "Stratocastor", Type.ACOUSTIC,12, Wood.ALDER, Wood.ALDER));
-		inventory.addGuitar("A222" , 1500.95, new GuitarSpec(Builder.COLLINGS, "Stratocastor", Type.ELECTRIC,12, Wood.ALDER, Wood.ALDER));
+		inventory.addInstrument("V95693", 1499.95, new GuitarSpec(Builder.FENDER, "Stratocastor", Type.ELECTRIC,12, Wood.ALDER, Wood.ALDER));
+		inventory.addInstrument("V95692", 1480.95, new GuitarSpec(Builder.FENDER, "Stratocastor", Type.ELECTRIC,12, Wood.ALDER, Wood.ALDER));
+		inventory.addInstrument("V9512", 1500.95, new GuitarSpec(Builder.FENDER, "Stratocastor", Type.ELECTRIC,12, Wood.COCOBOLO, Wood.COCOBOLO));
+		inventory.addInstrument("G9512", 1500.95, new GuitarSpec(Builder.GIBSON, "Stratocastor", Type.ELECTRIC,12, Wood.ALDER, Wood.ALDER));
+		inventory.addInstrument("F9512", 1500.95, new GuitarSpec(Builder.GIBSON, "Stratocastor", Type.ACOUSTIC,12, Wood.ALDER, Wood.ALDER));
+		inventory.addInstrument("A222" , 1500.95, new GuitarSpec(Builder.COLLINGS, "Stratocastor", Type.ELECTRIC,12, Wood.ALDER, Wood.ALDER));
 	}
 }
