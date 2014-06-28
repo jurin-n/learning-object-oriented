@@ -1,64 +1,37 @@
 package headfirst.chap05;
 
-public abstract class InstrumentSpec {
-	private Builder builder;
-	private String model;
-	private Type type;
-	private Wood backWood;
-	private Wood topWood;
-	
-	public InstrumentSpec(Builder builder,String model,Type type
-			,Wood backWood,Wood topWood){
-		this.builder = builder;
-		this.model = model;
-		this.type = type;
-		this.backWood = backWood;
-		this.topWood = topWood;
-	}
-	
-	public Builder getBuilder() {
-		return builder;
-	}
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
 
-	public String getModel() {
-		return model;
-	}
-
-	public Type getType() {
-		return type;
-	}
-
-	public Wood getBackWood() {
-		return backWood;
-	}
-
-	public Wood getTopWood() {
-		return topWood;
-	}
+public class InstrumentSpec {
+	private Map<String, Object> properties;
 	
-	
-	public InstrumentSpec getSpec(){
-		return this;
-	}
-	
-	public boolean matches(InstrumentSpec searchSpec){
-		if( builder != searchSpec.getBuilder())
-			return false;
-		
-		if( model != null && !model.equals("")
-				&& (!model.equals(searchSpec.getModel()))){
-			return false;
+	public InstrumentSpec(Map<String, Object> properties){
+		if(properties ==null){
+			this.properties = new HashMap<String,Object>();
+		}else{
+			this.properties= new HashMap<String, Object>(properties);
 		}
-		
-		if( type != searchSpec.getType())
-			return false;
-			
-		if( backWood != searchSpec.getBackWood())
-			return false;
-		
-		if( topWood != searchSpec.getTopWood())
-			return false;
-		
+	}
+	
+	public Object getProperty(String propertyName){
+		return properties.get(propertyName);
+	}
+	
+	public Map<String, Object> getProperties(){
+		return properties;
+	}
+	
+	public boolean matches(InstrumentSpec otherSpec){		
+		for(Iterator<String> i = otherSpec.getProperties().keySet().iterator();
+				i.hasNext();){
+			String propertyName = (String)i.next();
+			if(!properties.get(propertyName).equals(
+					otherSpec.getProperty(propertyName))){
+				return false;
+			}
+		}
 		return true;
 	}
 }
