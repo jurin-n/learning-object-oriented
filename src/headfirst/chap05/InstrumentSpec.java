@@ -1,6 +1,6 @@
 package headfirst.chap05;
 
-public class InstrumentSpec {
+public abstract class InstrumentSpec {
 	private Builder builder;
 	private String model;
 	private Type type;
