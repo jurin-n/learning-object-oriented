@@ -31,26 +31,15 @@ public class Inventory {
 		return null;
 	}
 	
-	public List<Guitar> search(GuitarSpec searchGuitar){
-		List<Guitar> matchingGuitars = new LinkedList<Guitar>();
+	public List<Instrument> search(InstrumentSpec searchSpec){
+		List<Instrument> instruments = new LinkedList<Instrument>();
 		for(Iterator<Instrument> i = inventory.iterator();i.hasNext();){
-			Guitar guitar = (Guitar)i.next();	
-			if(guitar.getSpec().matches(searchGuitar)){
-				matchingGuitars.add(guitar);	
+			Instrument spec = (Instrument)i.next();	
+			if(spec.getSpec().matches(searchSpec)){
+				instruments.add(spec);	
 			}
 		}
-		return matchingGuitars;
-	}
-	
-	public List<Mandolin> search(MandolinSpec searchMandolin){
-		List<Mandolin> matchingMandolins = new LinkedList<Mandolin>();
-		for(Iterator<Instrument> i = inventory.iterator();i.hasNext();){
-			Mandolin mandolin = (Mandolin)i.next();	
-			if(mandolin.getSpec().matches(searchMandolin)){
-				matchingMandolins.add(mandolin);	
-			}
-		}
-		return matchingMandolins;
+		return instruments;
 	}
 	
 }
