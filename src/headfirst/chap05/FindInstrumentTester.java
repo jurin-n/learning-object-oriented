@@ -47,5 +47,20 @@ public class FindInstrumentTester {
 		properties.put("backWood", Wood.MAPLE);
 		inventory.addInstrument("V95693", 1499.95, new InstrumentSpec(properties));
 		inventory.addInstrument("V95692", 1480.95, new InstrumentSpec(properties));
+		
+		Map<String,Object> properties2 = new HashMap<String,Object>();
+		properties2.put("instrumentType", InstrumentType.BANJO);
+		properties2.put("builder", Builder.GIBSON);
+		properties2.put("backWood", Wood.MAPLE);
+		inventory.addInstrument("B1", 300, new InstrumentSpec(properties2));
+		inventory.addInstrument("B2", 400.95, new InstrumentSpec(properties2));
+		
+		
+		Map<String,Object> properties3 = new HashMap<String,Object>();
+		properties3.put("instrumentType", InstrumentType.BANJO);
+		properties3.put("builder", Builder.FENDER);
+		properties3.put("backWood", Wood.MAPLE);
+		inventory.addInstrument("BB1", 300, new InstrumentSpec(properties3));
+		inventory.addInstrument("BB2", 400.95, new InstrumentSpec(properties3));
 	}
 }
