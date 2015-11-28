@@ -13,5 +13,10 @@ public class GoldMember implements Member {
 		// TODO Auto-generated method stub
 		return 150;
 	}
-
+	
+	@Override
+	public int calculateRentalFeeForBook() {
+		// TODO Auto-generated method stub
+		return 50;
+	}
 }

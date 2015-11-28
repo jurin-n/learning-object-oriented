@@ -13,5 +13,10 @@ public class FamilyMember implements Member {
 		// TODO Auto-generated method stub
 		return 3000;
 	}
-
+	
+	@Override
+	public int calculateRentalFeeForBook() {
+		// TODO Auto-generated method stub
+		return 50;
+	}
 }

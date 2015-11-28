@@ -30,6 +30,13 @@ public class RentalShopTest {
 	}
 	
 	@Test
+	public void test一般メンバのBookレンタル料金は50() {
+		Member member = new CommonMember();
+		Item item = new Book();
+		assertThat(shop.calculateRentalFee(item, member),is(50));
+	}
+	
+	@Test
 	public void testゴールドメンバのCDレンタル料金は50() {
 		Member member = new GoldMember();
 		Item item= new CD();
@@ -44,6 +51,13 @@ public class RentalShopTest {
 	}
 	
 	@Test
+	public void testゴールドメンバのBookレンタル料金は50() {
+		Member member = new GoldMember();
+		Item item= new Book();
+		assertThat(shop.calculateRentalFee(item, member),is(50));
+	}
+	
+	@Test
 	public void testファミリーメンバのCDレンタル料金は1000() {
 		Member member = new FamilyMember();
 		Item item= new CD();
@@ -55,5 +69,12 @@ public class RentalShopTest {
 		Member member = new FamilyMember();
 		Item item= new DVD();
 		assertThat(shop.calculateRentalFee(item, member),is(3000));
+	}
+	
+	@Test
+	public void testファミリーメンバのBookレンタル料金は50() {
+		Member member = new FamilyMember();
+		Item item= new Book();
+		assertThat(shop.calculateRentalFee(item, member),is(50));
 	}
 }

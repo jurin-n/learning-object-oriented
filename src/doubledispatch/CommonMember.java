@@ -14,4 +14,10 @@ public class CommonMember implements Member {
 		return 300;
 	}
 
+	@Override
+	public int calculateRentalFeeForBook() {
+		// TODO Auto-generated method stub
+		return 50;
+	}
+
 }
